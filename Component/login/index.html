@@ -17,10 +17,38 @@
             /* background-color: blue; */
         }
 
+        .animation_box h1 {
+            font-size: 50px;
+            margin-bottom: 35px;
+        }
+
+        .ball {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(45deg, #1C4D8D, #648DB3);
+            border-radius: 50%;
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            transform: scale(2.1);
+            /* z-index: 0; */
+        }
+
+        .intro_txt {
+            position: relative;
+            top: -25px;
+            left: 50px;
+            z-index: 1;
+        }
+
         .sing_in_up_parent {
             background: linear-gradient(45deg, #1C4D8D, #79C9C5, #648DB3, #79C9C5, #1C4D8D);
-            padding: 50px;
+            padding: 25px;
             color: white;
+            position: relative;
+            overflow: hidden;
+            width: 80%;
+            border-radius: 25px;
         }
 
         .log_in_box {
@@ -29,6 +57,8 @@
             backdrop-filter: blur(10px);
             padding: 30px;
             gap: 30px;
+            border-radius: 25px;
+            padding-bottom: 50px;
         }
 
         .logo {
@@ -60,6 +90,7 @@
             left: 0;
             transform: translate(-50% -50%);
             transition: all .1s ease-in-out;
+            z-index: -1;
         }
 
         .input_box i {
@@ -71,7 +102,7 @@
             z-index: 1;
         }
 
-        .password_icon_line{
+        .password_icon_line {
             width: 35px;
             height: 3px;
             background: white;
@@ -90,51 +121,139 @@
             width: 100%;
         }
 
-        .log_in_box button {
+        button {
             width: 180px;
             height: 40px;
             padding: 5px;
             border-radius: 15px;
             border: none;
             background: #435f7a;
-            /* background: linear-gradient(45deg, #79C9C5, #435f7a, #79C9C5); */
             font-size: 20px;
             font-weight: bolder;
             color: white;
+        }
+
+        .sing_up_link {
+            position: absolute;
+            bottom: 0px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width:0px) and (max-width:576px) {
+            body {
+                height: 95vh;
+            }
+
+            .sing_in_up_parent {
+                padding: 15px;
+                justify-content: center !important;
+            }
+
+            .ball {
+                /* transform: scale(.7); */
+                width: 140px;
+                height: 115px;
+                top: 0;
+                left: 0;
+                border-radius: 0;
+                /* border-bottom-left-radius: 50px; */
+                border-bottom-right-radius: 50px;
+            }
+
+            .animation_box h1 {
+                font-size: 30px;
+                margin-bottom: 15px;
+            }
+
+            .animation_box p {
+                font-size: 16px;
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .intro_txt p:last-child {
+                margin-bottom: 3px !important;
+            }
+
+            .intro_txt{
+                top: 0;
+                left: 0;
+            }
+
+            .logo {
+                background: red;
+                width: 90px;
+                height: 90px;
+                margin-bottom: 8px;
+            }
+
+            .log_in_box {
+                width: 250px;
+                margin-top: 15px;
+                padding: 15px;
+                padding-bottom: 50px;
+                gap: 25px;
+            }
+
+            button {
+                width: 140px;
+                height: 30px;
+                font-size: 16px;
+                padding: 3px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="container sing_in_up_parent">
-            <div class="d-flex justify-content-center align-items-center flex-column log_in_box">
-                <div class="logo"></div>
-                <div class="d-flex justify-content-center align-items-center flex-column input_box">
-                    <input type="text" name="" id="user_name">
-                    <label for="#user_name" id="user_name_lb">User Name</label>
-                    <i class="bi bi-person user_icon"></i>
-                </div>
-                <div class="d-flex justify-content-center align-items-center flex-column input_box">
-                    <input type="text" name="" id="password">
-                    <label for="#password" id="password_lb">Password</label>
-                    <i class="bi bi-eye password_icon">
-                        <div class="password_icon_line"></div>
-                    </i>
-                    
-                </div>
-                <div class="d-flex justify-content-between align-items-center remember_forgot_container">
-                    <div class="check_input_box">
-                        <input type="checkbox" name="" id="R_me_inp">
-                        <label for="">Remember me</label>
-                    </div>
-                    <div class="forgot_box">
-                        <a href="">
-                            Forgot Password
-                        </a>
+    <div class="container-fluid d-flex justify-content-evenly align-items-center ">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-between align-items-center flex-wrap sing_in_up_parent">
+                <div class="d-flex justify-content-center align-items-center flex-column animation_box">
+                    <div class="ball"></div>
+                    <div class="d-flex justify-content-center align-items-center flex-column flex-wrap intro_txt ">
+                        <h1>
+                            Welcome Back
+                        </h1>
+                        <p class="m-0 text-center">
+                            Please log in with your User Name and Password.
+                        </p>
+                        <p class="mt-2 text-center">
+                            If you haven't any account please Sign Up.
+                        </p>
                     </div>
                 </div>
-                <button id="sing_in_btn">Sing in</button>
+                <div class="d-flex justify-content-center align-items-center flex-column log_in_box">
+                    <div class="logo"></div>
+                    <div class="d-flex justify-content-center align-items-center flex-column input_box">
+                        <input type="text" name="" id="user_name">
+                        <label for="#user_name" id="user_name_lb">User Name</label>
+                        <i class="bi bi-person user_icon"></i>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center flex-column input_box">
+                        <input type="text" name="" id="password">
+                        <label for="#password" id="password_lb">Password</label>
+                        <i class="bi bi-eye password_icon">
+                            <div class="password_icon_line"></div>
+                        </i>
+
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center remember_forgot_container">
+                        <div class="check_input_box">
+                            <input type="checkbox" name="" id="R_me_inp">
+                            <label for="">Remember me</label>
+                        </div>
+                        <div class="forgot_box">
+                            <a href="">
+                                Forgot Password
+                            </a>
+                        </div>
+                    </div>
+                    <button id="sing_in_btn btn">Sing in</button>
+                    <a href="" class="sing_up_link">
+                        Sign Up
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -146,8 +265,8 @@
         var userLabelpassword = document.getElementById("password_lb");
         var rememberMecheckbox = document.getElementById("R_me_inp");
         var singInButton = document.getElementById("sing_in_btn");
-        var passwordIcon =document.getElementById("password_icon");
-        var passwordIconline =document.getElementById("password_icon_line");
+        var passwordIcon = document.getElementById("password_icon");
+        var passwordIconline = document.getElementById("password_icon_line");
 
         userInputname.addEventListener("click", function () {
             userLabelname.style.top = "-50%";
@@ -161,10 +280,10 @@
             userLabelpassword.style.fontSize = "16px";
             // userLabelname.style.top = "50%";
         });
-        passwordIcon.addEventListener("click",function(){
-            passwordIconline.style.transform="translate(0px)";
-            passwordIcon.style.backgroundb="black";
-            passwordIcon.style.color="black";
+        passwordIcon.addEventListener("click", function () {
+            passwordIconline.style.transform = "translate(0px)";
+            passwordIcon.style.backgroundb = "black";
+            passwordIcon.style.color = "black";
         });
 
         if (rememberMecheckbox == false) {
